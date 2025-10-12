@@ -1,3 +1,9 @@
+const score={
+     Won : 0,
+     Lost : 0,
+     Draws : 0
+  }
+
 function computerchoice(){
     const computerchoice=Math.random();
     let resultOfComputer;
@@ -11,6 +17,11 @@ function computerchoice(){
     return resultOfComputer;
 }
 
+function resetscore(){
+  score.Won=0;
+  score.Lost=0;
+  score.Draws=0;
+}
 
 function playGame(playermove){
   if(playermove==='Rock'){
@@ -23,30 +34,53 @@ function playGame(playermove){
       }else{
         result='You Win';
       }
-      alert(`You chose Rock, Computer chose ${computermove}, ${result}`);
+      if(result==='It is a draw'){
+        score.Draws+=1;
+      }else if(result==='You Lose'){
+        score.Lost+=1;
+      }else{
+        score.Won+=1;
+      }
+      alert(`You chose Rock, Computer chose ${computermove}, ${result}
+Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
   }else if(playermove==='Paper'){
-    
-       const computermove1=computerchoice();
-       let result1='';
-      if(computermove1==='Rock'){
-        result1='You Win';
-      }else if(computermove1==='Paper'){
-        result1='It is a draw'; 
+       const computermove=computerchoice();
+       let result='';
+      if(computermove==='Rock'){
+        result='You Win';
+      }else if(computermove==='Paper'){
+        result='It is a draw'; 
       }else{
-        result1='You Lose';
+        result='You Lose';
       }
-      alert(`You chose Paper, Computer chose ${computermove1}, ${result1}`);
+      if(result==='It is a draw'){
+        score.Draws+=1;
+      }else if(result==='You Lose'){
+        score.Lost+=1;
+      }else{
+        score.Won+=1;
+      }
+      alert(`You chose Paper, Computer chose ${computermove}, ${result}
+Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
   }else{
-    
-       const computermove2=computerchoice();
-       let result2='';
-      if(computermove2==='Rock'){
-        result2='You Lose';
-      }else if(computermove2==='Scissors'){
-        result2='It is a draw'; 
+       const computermove=computerchoice();
+       let result='';
+      if(computermove==='Rock'){
+        result='You Lose';
+      }else if(computermove==='Scissors'){
+        result='It is a draw'; 
       }else{
-        result2='You Win';
+        result='You Win';
       }
-      alert(`You chose Scissors, Computer chose ${computermove2}, ${result2}`);
+      if(result==='It is a draw'){
+        score.Draws+=1;
+      }else if(result==='You Lose'){
+        score.Lost+=1;
+      }else{
+        score.Won+=1;
+      }
+      alert(`You chose Scissors, Computer chose ${computermove}, ${result}
+Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
   }
 }
+ 
