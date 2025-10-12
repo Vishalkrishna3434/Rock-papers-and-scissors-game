@@ -8,6 +8,6 @@ function computerchoice(){
     }else{
       resultOfComputer="Scissors";
     }
-    return computerchoice;
+    return resultOfComputer;
 }
 

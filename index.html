@@ -8,18 +8,29 @@
   <body>
     <title>Rock, Papers and Scissors</title>
      <button class="simple-button" onclick= "
-       const computermove=console.log(computerchoice());
-       let reult='';
-      if(computermove==='rock'){
-        result='draw';
-      }else if(computermove==='paper'){
-        result='you lose'; 
+       const computermove=computerchoice();
+       let result='';
+      if(computermove==='Rock'){
+        result='It is a draw';
+      }else if(computermove==='Paper'){
+        result='You Lose'; 
       }else{
-        result='you win';
+        result='You Win';
       }
-      alert(`you chose rock, computer chose ${computermove}, ${result}`);
+      alert(`You chose Rock, Computer chose ${computermove}, ${result}`);
      ">Rock</button>
-     <button class="simple-button">Papers</button>
+     <button class="simple-button" onclick= "
+       const computermove1=computerchoice();
+       let result1='';
+      if(computermove1==='Rock'){
+        result1='You win';
+      }else if(computermove1==='Paper'){
+        result1='It is a draw'; 
+      }else{
+        result1='You Lose';
+      }
+      alert(`You chose Paper, Computer chose ${computermove1}, ${result1}`);
+     ">Paper</button>
      <button class="simple-button">Scissors</button>
      <script src="index.js"></script>
   </body>
