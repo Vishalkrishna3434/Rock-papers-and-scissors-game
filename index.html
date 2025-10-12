@@ -7,7 +7,18 @@
   </head>
   <body>
     <title>Rock, Papers and Scissors</title>
-     <button class="simple-button" onclick=>Rock</button>
+     <button class="simple-button" onclick= "
+       const computermove=console.log(computerchoice());
+       let reult='';
+      if(computermove==='rock'){
+        result='draw';
+      }else if(computermove==='paper'){
+        result='you lose'; 
+      }else{
+        result='you win';
+      }
+      alert(`you chose rock, computer chose ${computermove}, ${result}`);
+     ">Rock</button>
      <button class="simple-button">Papers</button>
      <button class="simple-button">Scissors</button>
      <script src="index.js"></script>
