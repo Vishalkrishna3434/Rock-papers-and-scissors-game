@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
-    <title>Rock, Papers and Scissors</title>
+    <h1>Rock, Papers and Scissors</h1>
      <button class="simple-button" onclick= "
        const computermove=computerchoice();
        let result='';
@@ -23,7 +23,7 @@
        const computermove1=computerchoice();
        let result1='';
       if(computermove1==='Rock'){
-        result1='You win';
+        result1='You Win';
       }else if(computermove1==='Paper'){
         result1='It is a draw'; 
       }else{
@@ -31,7 +31,18 @@
       }
       alert(`You chose Paper, Computer chose ${computermove1}, ${result1}`);
      ">Paper</button>
-     <button class="simple-button">Scissors</button>
+     <button class="simple-button"  onclick= "
+       const computermove2=computerchoice();
+       let result2='';
+      if(computermove2==='Rock'){
+        result2='You Lose';
+      }else if(computermove2==='Scissors'){
+        result2='It is a draw'; 
+      }else{
+        result2='You Win';
+      }
+      alert(`You chose Scissors, Computer chose ${computermove2}, ${result2}`);
+     ">Scissors</button>
      <script src="index.js"></script>
   </body>
 </html>
