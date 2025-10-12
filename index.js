@@ -1,4 +1,4 @@
-const score={
+const score=JSON.parse(localStorage.getItem('score')) || {
      Won : 0,
      Lost : 0,
      Draws : 0
@@ -41,6 +41,7 @@ function playGame(playermove){
       }else{
         score.Won+=1;
       }
+      localStorage.setItem('score',JSON.stringify(score));
       alert(`You chose Rock, Computer chose ${computermove}, ${result}
 Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
   }else if(playermove==='Paper'){
@@ -60,6 +61,7 @@ Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
       }else{
         score.Won+=1;
       }
+      localStorage.setItem('score',JSON.stringify(score));
       alert(`You chose Paper, Computer chose ${computermove}, ${result}
 Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
   }else{
@@ -79,6 +81,7 @@ Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
       }else{
         score.Won+=1;
       }
+      localStorage.setItem('score',JSON.stringify(score));
       alert(`You chose Scissors, Computer chose ${computermove}, ${result}
 Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
   }
