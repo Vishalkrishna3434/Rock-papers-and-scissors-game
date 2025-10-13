@@ -24,10 +24,25 @@ function resetscore(){
   localStorage.removeItem('score');
   showscore();
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    showscore();
+    showresult("Pick your move");
+    showmoves("None", "None");
+});
+
+function showresult(result){
+   document.querySelector('.display_result').innerHTML=`${result}`;
+}
+
+function showmoves(computermove,playermove){
+    document.querySelector('.display_moves').innerHTML=`Your move is : ${playermove} and Computer move is : ${computermove}`
+}
+
 function showscore(){
   document.querySelector('.display_score').innerHTML=`Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`;
 } 
-showscore();
+
 function playGame(playermove){
   if(playermove==='Rock'){
     const computermove=computerchoice();
@@ -47,6 +62,8 @@ function playGame(playermove){
         score.Won+=1;
       }
       localStorage.setItem('score',JSON.stringify(score));
+      showresult(result);
+      showmoves(computermove,playermove);
       showscore();
       alert(`You chose Rock, Computer chose ${computermove}, ${result}
 Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
@@ -68,6 +85,8 @@ Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
         score.Won+=1;
       }
       localStorage.setItem('score',JSON.stringify(score));
+      showresult(result);
+      showmoves(computermove,playermove);
       showscore();
       alert(`You chose Paper, Computer chose ${computermove}, ${result}
 Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
@@ -89,6 +108,8 @@ Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
         score.Won+=1;
       }
       localStorage.setItem('score',JSON.stringify(score));
+      showresult(result);
+      showmoves(computermove,playermove);
       showscore();
       alert(`You chose Scissors, Computer chose ${computermove}, ${result}
 Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
