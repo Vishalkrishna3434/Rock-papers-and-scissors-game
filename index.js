@@ -21,8 +21,13 @@ function resetscore(){
   score.Won=0;
   score.Lost=0;
   score.Draws=0;
+  localStorage.removeItem('score');
+  showscore();
 }
-
+function showscore(){
+  document.querySelector('.display_score').innerHTML=`Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`;
+} 
+showscore();
 function playGame(playermove){
   if(playermove==='Rock'){
     const computermove=computerchoice();
@@ -42,6 +47,7 @@ function playGame(playermove){
         score.Won+=1;
       }
       localStorage.setItem('score',JSON.stringify(score));
+      showscore();
       alert(`You chose Rock, Computer chose ${computermove}, ${result}
 Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
   }else if(playermove==='Paper'){
@@ -62,6 +68,7 @@ Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
         score.Won+=1;
       }
       localStorage.setItem('score',JSON.stringify(score));
+      showscore();
       alert(`You chose Paper, Computer chose ${computermove}, ${result}
 Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
   }else{
@@ -82,6 +89,7 @@ Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
         score.Won+=1;
       }
       localStorage.setItem('score',JSON.stringify(score));
+      showscore();
       alert(`You chose Scissors, Computer chose ${computermove}, ${result}
 Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
   }
