@@ -3,7 +3,8 @@ const score=JSON.parse(localStorage.getItem('score')) || {
      Lost : 0,
      Draws : 0
   }
-
+let isautoplaying=false;
+let intervalid;
 function computerchoice(){
     const computerchoice=Math.random();
     let resultOfComputer;
@@ -16,7 +17,18 @@ function computerchoice(){
     }
     return resultOfComputer;
 }
-
+function playagain(){
+   if(!isautoplaying){
+    intervalid=setInterval(function(){
+      const com=computerchoice();
+      playGame(com);
+    },1000);
+    isautoplaying=true;
+   }else{
+    clearInterval(intervalid);
+    isautoplaying=false;
+   }
+}
 function resetscore(){
   score.Won=0;
   score.Lost=0;
@@ -65,8 +77,10 @@ function playGame(playermove){
       showresult(result);
       showmoves(computermove,playermove);
       showscore();
+      if(!isautoplaying){
       alert(`You chose Rock, Computer chose ${computermove}, ${result}
 Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
+      }
   }else if(playermove==='Paper'){
        const computermove=computerchoice();
        let result='';
@@ -88,8 +102,10 @@ Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
       showresult(result);
       showmoves(computermove,playermove);
       showscore();
+      if(!isautoplaying){
       alert(`You chose Paper, Computer chose ${computermove}, ${result}
 Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
+      }
   }else{
        const computermove=computerchoice();
        let result='';
@@ -111,8 +127,10 @@ Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
       showresult(result);
       showmoves(computermove,playermove);
       showscore();
+      if(!isautoplaying){
       alert(`You chose Scissors, Computer chose ${computermove}, ${result}
 Won : ${score.Won} , Lost : ${score.Lost} and Draws : ${score.Draws}`);
   }
+}
 }
  
